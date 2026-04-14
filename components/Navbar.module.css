@@ -1,0 +1,115 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 3rem;
+  transition: background 0.3s, border-color 0.3s, padding 0.3s;
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  border-color: #1e1e1e;
+  padding: 1rem 3rem;
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: #F5C842;
+  text-decoration: none;
+}
+.logo span { color: #f5f3ee; }
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.link {
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #777;
+  transition: color 0.2s;
+}
+.link:hover, .active { color: #F5C842; }
+
+.cta {
+  background: #F5C842;
+  color: #0a0a0a;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: background 0.2s;
+}
+.cta:hover { background: #e6b800; }
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 4px;
+}
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #f5f3ee;
+  transition: all 0.3s;
+}
+.line1open { transform: rotate(45deg) translate(5px, 5px); }
+.line2open { opacity: 0; }
+.line3open { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  z-index: 99;
+}
+.mobileLink {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: #f5f3ee;
+  letter-spacing: 2px;
+  transition: color 0.2s;
+}
+.mobileLink:hover { color: #F5C842; }
+.mobileCta {
+  background: #F5C842;
+  color: #0a0a0a;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.8rem 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 1rem 1.5rem; }
+  .scrolled { padding: 0.8rem 1.5rem; }
+  .links, .cta { display: none; }
+  .burger { display: flex; }
+}

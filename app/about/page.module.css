@@ -1,0 +1,114 @@
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10rem 3rem 5rem;
+  background: #0a0a0a;
+  border-bottom: 1px solid #1a1a1a;
+}
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #F5C842;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: #F5C842; }
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 10vw, 10rem);
+  line-height: 0.9;
+  color: #f5f3ee;
+}
+.title em { color: #F5C842; font-style: normal; }
+.heroDivider { width: 60px; height: 3px; background: #F5C842; margin-top: 2.5rem; }
+
+.story { background: #111; padding: 7rem 3rem; }
+.storyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.storyText p { color: #777; line-height: 1.9; font-size: 1rem; margin-bottom: 1.5rem; }
+.btn {
+  display: inline-block;
+  background: #F5C842;
+  color: #0a0a0a;
+  font-weight: 500;
+  padding: 0.9rem 2rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+.btn:hover { background: #e6b800; }
+.storyVisual { text-align: right; }
+.bigYear {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(6rem, 15vw, 15rem);
+  color: rgba(245, 200, 66, 0.08);
+  line-height: 1;
+  letter-spacing: -4px;
+}
+.storyCaption { font-size: 0.85rem; color: #444; letter-spacing: 1px; text-transform: uppercase; margin-top: 1rem; }
+
+.values { background: #0a0a0a; padding: 7rem 3rem; }
+.sectionLabel { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: #F5C842; margin-bottom: 0.8rem; }
+.sectionTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  color: #f5f3ee;
+  margin-bottom: 3rem;
+}
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background: #222;
+}
+.valueCard { background: #0a0a0a; padding: 2.5rem 2rem; }
+.valueNum {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: rgba(245, 200, 66, 0.25);
+  margin-bottom: 1rem;
+}
+.valueCard h3 { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; color: #f5f3ee; margin-bottom: 0.8rem; }
+.valueCard p { font-size: 0.85rem; color: #666; line-height: 1.7; }
+
+.team { background: #111; padding: 7rem 3rem; }
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.teamCard {
+  border: 1px solid #1e1e1e;
+  padding: 2rem;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+.teamCard:hover { border-color: #333; }
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 0 auto 1.2rem;
+  letter-spacing: 1px;
+}
+.memberName { font-weight: 500; font-size: 0.95rem; color: #f5f3ee; margin-bottom: 0.3rem; }
+.memberRole { font-size: 0.78rem; color: #555; text-transform: uppercase; letter-spacing: 1px; }
+
+@media (max-width: 768px) {
+  .hero { padding: 8rem 1.5rem 4rem; }
+  .story, .values, .team { padding: 5rem 1.5rem; }
+  .storyGrid { grid-template-columns: 1fr; gap: 3rem; }
+  .storyVisual { display: none; }
+}
