@@ -1,3 +1,5 @@
+'use client';
+import { useEffect, useRef } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
@@ -36,11 +38,29 @@ const services = [
   },
 ];
 
-export const metadata = { title: 'Services — Ada & Aces' };
+function useReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+    const elements = ref.current?.querySelectorAll('.reveal');
+    elements?.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
 
 export default function Services() {
+  const containerRef = useReveal();
+
   return (
-    <>
+    <div ref={containerRef}>
       <Navbar />
       <section className={styles.hero}>
         <div className={styles.eyebrow}>What We Do</div>
@@ -48,12 +68,12 @@ export default function Services() {
       </section>
 
       <section className={styles.intro}>
-        <p>We don&apos;t do half-measures. Each engagement is built around your specific goals, with the right mix of strategy, creative, and execution to get you there.</p>
+        <p className="reveal">We don&apos;t do half-measures. Each engagement is built around your specific goals, with the right mix of strategy, creative, and execution to get you there.</p>
       </section>
 
       <section className={styles.list}>
         {services.map((s, i) => (
-          <div key={s.num} className={`${styles.serviceRow} ${i % 2 === 1 ? styles.alt : ''}`}>
+          <div key={s.num} className={`${styles.serviceRow} ${i % 2 === 1 ? styles.alt : ''} reveal`}>
             <div className={styles.serviceLeft}>
               <div className={styles.serviceNum}>{s.num}</div>
               <h2 className={styles.serviceTitle}>{s.title}</h2>
@@ -73,12 +93,12 @@ export default function Services() {
       </section>
 
       <section className={styles.cta}>
-        <h2>Not sure where to start?</h2>
-        <p>Let&apos;s talk. We&apos;ll help you figure out what you actually need.</p>
-        <Link href="/contact" className={styles.ctaBtn}>Book a Free Call →</Link>
+        <h2 className="reveal">Not sure where to start?</h2>
+        <p className="reveal">Let&apos;s talk. We&apos;ll help you figure out what you actually need.</p>
+        <Link href="/contact" className={`${styles.ctaBtn} reveal`}>Book a Free Call →</Link>
       </section>
 
       <Footer />
-    </>
+    </div>
   );
 }

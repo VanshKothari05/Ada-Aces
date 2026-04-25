@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Ada & Aces — Marketing Agency',
-  description: 'Bold strategy. Relentless execution. We craft brands that command attention.',
+  title: 'Ads and Aces — Shoot. Create. Elevate.',
+  description: 'A creative marketing agency that shoots, creates, and elevates brands. Bold strategy meets stunning visuals.',
 };
 
 export default function RootLayout({ children }) {

@@ -28,7 +28,9 @@ export default function Navbar() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <Link href="/" className={styles.logo}>
-        Ada <span>&amp;</span> Aces
+        <span className={styles.logoAds}>ads</span>
+        <span className={styles.logoAnd}>&amp;</span>
+        <span className={styles.logoAces}>aces</span>
       </Link>
 
       <ul className={styles.links}>
@@ -49,14 +51,12 @@ export default function Navbar() {
         <span className={open ? styles.line3open : styles.line3} />
       </button>
 
-      {open && (
-        <div className={styles.mobileMenu}>
-          {links.map(({ href, label }) => (
-            <Link key={href} href={href} className={styles.mobileLink}>{label}</Link>
-          ))}
-          <Link href="/contact" className={styles.mobileCta}>Let&apos;s Talk →</Link>
-        </div>
-      )}
+      <div className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ''}`}>
+        {links.map(({ href, label }) => (
+          <Link key={href} href={href} className={styles.mobileLink}>{label}</Link>
+        ))}
+        <Link href="/contact" className={styles.mobileCta}>Let&apos;s Talk →</Link>
+      </div>
     </nav>
   );
 }

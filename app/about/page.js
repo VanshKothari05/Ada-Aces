@@ -1,15 +1,17 @@
+'use client';
+import { useEffect, useRef } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
 import styles from './page.module.css';
 
 const team = [
-  { name: 'Ada Chen', role: 'Co-Founder & Creative Director', initials: 'AC', color: '#F5C842' },
-  { name: 'Marcus Aces', role: 'Co-Founder & Strategy Lead', initials: 'MA', color: '#F5C842' },
-  { name: 'Priya Nair', role: 'Head of Digital', initials: 'PN', color: '#F5C842' },
-  { name: 'Jordan Blake', role: 'Lead Designer', initials: 'JB', color: '#F5C842' },
-  { name: 'Sam Torres', role: 'Performance Marketer', initials: 'ST', color: '#F5C842' },
-  { name: 'Riley Park', role: 'Content Strategist', initials: 'RP', color: '#F5C842' },
+  { name: 'Ada Chen', role: 'Co-Founder & Creative Director', initials: 'AC' },
+  { name: 'Marcus Aces', role: 'Co-Founder & Strategy Lead', initials: 'MA' },
+  { name: 'Priya Nair', role: 'Head of Digital', initials: 'PN' },
+  { name: 'Jordan Blake', role: 'Lead Designer', initials: 'JB' },
+  { name: 'Sam Torres', role: 'Performance Marketer', initials: 'ST' },
+  { name: 'Riley Park', role: 'Content Strategist', initials: 'RP' },
 ];
 
 const values = [
@@ -19,11 +21,29 @@ const values = [
   { num: '04', title: 'Radical honesty', desc: 'We tell you what you need to hear, not just what you want to hear.' },
 ];
 
-export const metadata = { title: 'About — Ada & Aces' };
+function useReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+    const elements = ref.current?.querySelectorAll('.reveal');
+    elements?.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
 
 export default function About() {
+  const containerRef = useReveal();
+
   return (
-    <>
+    <div ref={containerRef}>
       <Navbar />
 
       <section className={styles.hero}>
@@ -34,13 +54,13 @@ export default function About() {
 
       <section className={styles.story}>
         <div className={styles.storyGrid}>
-          <div className={styles.storyText}>
-            <p>Ada &amp; Aces was born out of frustration. Too many brilliant brands were being handed forgettable campaigns by agencies more interested in retainers than results.</p>
+          <div className={`${styles.storyText} reveal`}>
+            <p>Ads and Aces was born out of frustration. Too many brilliant brands were being handed forgettable campaigns by agencies more interested in retainers than results.</p>
             <p>We started as a two-person team in 2018 with one simple conviction: strategy and creativity shouldn&apos;t be siloed. The best marketing is both intellectually rigorous and visually arresting.</p>
             <p>Today we&apos;re a team of twelve working with founders, growth teams, and brand leads across the globe — from early-stage startups to scale-ups ready to make serious noise.</p>
             <Link href="/contact" className={styles.btn}>Work With Us →</Link>
           </div>
-          <div className={styles.storyVisual}>
+          <div className={`${styles.storyVisual} reveal reveal-delay-2`}>
             <div className={styles.bigYear}>2018</div>
             <div className={styles.storyCaption}>Founded in Mumbai,<br />operating everywhere.</div>
           </div>
@@ -48,11 +68,11 @@ export default function About() {
       </section>
 
       <section className={styles.values}>
-        <div className={styles.sectionLabel}>What We Stand For</div>
-        <h2 className={styles.sectionTitle}>Our Values</h2>
+        <div className={`${styles.sectionLabel} reveal`}>What We Stand For</div>
+        <h2 className={`${styles.sectionTitle} reveal`}>Our Values</h2>
         <div className={styles.valuesGrid}>
-          {values.map((v) => (
-            <div key={v.num} className={styles.valueCard}>
+          {values.map((v, i) => (
+            <div key={v.num} className={`${styles.valueCard} reveal reveal-delay-${i + 1}`}>
               <div className={styles.valueNum}>{v.num}</div>
               <h3>{v.title}</h3>
               <p>{v.desc}</p>
@@ -62,12 +82,12 @@ export default function About() {
       </section>
 
       <section className={styles.team}>
-        <div className={styles.sectionLabel}>The People</div>
-        <h2 className={styles.sectionTitle}>Meet the Team</h2>
+        <div className={`${styles.sectionLabel} reveal`}>The People</div>
+        <h2 className={`${styles.sectionTitle} reveal`}>Meet the Team</h2>
         <div className={styles.teamGrid}>
-          {team.map((m) => (
-            <div key={m.name} className={styles.teamCard}>
-              <div className={styles.avatar} style={{ background: 'rgba(245,200,66,0.1)', color: '#F5C842' }}>
+          {team.map((m, i) => (
+            <div key={m.name} className={`${styles.teamCard} reveal reveal-delay-${(i % 4) + 1}`}>
+              <div className={styles.avatar}>
                 {m.initials}
               </div>
               <div className={styles.memberName}>{m.name}</div>
@@ -78,6 +98,6 @@ export default function About() {
       </section>
 
       <Footer />
-    </>
+    </div>
   );
 }

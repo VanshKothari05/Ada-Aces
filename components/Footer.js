@@ -6,8 +6,8 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.top}>
         <div className={styles.brand}>
-          <div className={styles.logo}>Ada <span>&amp;</span> Aces</div>
-          <p>Bold strategy. Relentless execution.<br />We make brands unforgettable.</p>
+          <img src="/logo.jpeg" alt="Ads and Aces" className={styles.logoImg} />
+          <p>Shoot. Create. Elevate.<br />We make brands unforgettable.</p>
         </div>
         <div className={styles.col}>
           <h4>Pages</h4>
@@ -34,8 +34,8 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles.bottom}>
-        <span>© {new Date().getFullYear()} Ada &amp; Aces. All rights reserved.</span>
-        <span>Made with obsession.</span>
+        <span>© {new Date().getFullYear()} Ads and Aces. All rights reserved.</span>
+        <span>Shoot. Create. Elevate.</span>
       </div>
     </footer>
   );

@@ -4,50 +4,177 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 10rem 3rem 5rem;
-  background: #0a0a0a;
-  border-bottom: 1px solid #1a1a1a;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
 }
-.eyebrow { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: #F5C842; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
-.eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: #F5C842; }
-.title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 10rem); line-height: 0.9; color: #f5f3ee; }
-.title em { color: #F5C842; font-style: normal; }
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--terracotta);
+  border-radius: 1px;
+}
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.95;
+  color: var(--navy);
+}
+.title em {
+  color: var(--terracotta);
+  font-style: italic;
+}
 
-.intro { background: #111; padding: 4rem 3rem; border-bottom: 1px solid #1e1e1e; }
-.intro p { font-size: 1.2rem; color: #666; max-width: 600px; line-height: 1.8; }
+.intro {
+  background: var(--cream-dark);
+  padding: 4rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.intro p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 600px;
+  line-height: 1.8;
+}
 
-.list { background: #0a0a0a; }
+.list {
+  background: var(--cream);
+}
 .serviceRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  border-bottom: 1px solid #1a1a1a;
+  border-bottom: 1px solid var(--border);
 }
 .alt { direction: rtl; }
 .alt > * { direction: ltr; }
 .serviceLeft { padding: 5rem 3rem; }
-.serviceRight { padding: 5rem 3rem; background: #0d0d0d; border-left: 1px solid #1a1a1a; display: flex; flex-direction: column; justify-content: center; gap: 0.9rem; }
-.alt .serviceRight { border-left: none; border-right: 1px solid #1a1a1a; }
-.serviceNum { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(245, 200, 66, 0.15); line-height: 1; margin-bottom: 0.5rem; }
-.serviceTitle { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: #f5f3ee; line-height: 1; margin-bottom: 1.5rem; }
-.serviceDesc { font-size: 0.9rem; color: #666; line-height: 1.8; margin-bottom: 2rem; max-width: 380px; }
-.btn { display: inline-block; border: 1px solid #333; color: #aaa; background: transparent; padding: 0.75rem 1.8rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.2s; }
-.btn:hover { border-color: #F5C842; color: #F5C842; }
-.item { display: flex; align-items: center; gap: 1rem; font-size: 0.9rem; color: #888; padding: 0.6rem 0; border-bottom: 1px solid #161616; }
+.serviceRight {
+  padding: 5rem 3rem;
+  background: var(--cream-dark);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9rem;
+}
+.alt .serviceRight {
+  border-left: none;
+  border-right: 1px solid var(--border);
+}
+.serviceNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: var(--sage);
+  opacity: 0.2;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.serviceTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+.serviceDesc {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 380px;
+}
+.btn {
+  display: inline-block;
+  border: 1.5px solid var(--border);
+  color: var(--text-light);
+  background: transparent;
+  padding: 0.75rem 1.8rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+  background: rgba(212, 131, 107, 0.05);
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
 .item:last-child { border-bottom: none; }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: #F5C842; flex-shrink: 0; }
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  flex-shrink: 0;
+}
 
-.cta { background: #F5C842; padding: 6rem 3rem; text-align: center; }
-.cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 5rem); color: #0a0a0a; margin-bottom: 1rem; }
-.cta p { font-size: 1rem; color: rgba(0,0,0,0.6); margin-bottom: 2.5rem; }
-.ctaBtn { display: inline-block; background: #0a0a0a; color: #F5C842; font-size: 0.9rem; font-weight: 500; padding: 1rem 2.5rem; text-transform: uppercase; letter-spacing: 1.5px; transition: background 0.2s; }
-.ctaBtn:hover { background: #222; }
+.cta {
+  background: linear-gradient(135deg, var(--navy), var(--charcoal));
+  padding: 6rem 3rem;
+  text-align: center;
+}
+.cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: white;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+.cta p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 2.5rem;
+}
+.ctaBtn {
+  display: inline-block;
+  background: var(--terracotta);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(212, 131, 107, 0.3);
+}
+.ctaBtn:hover {
+  background: var(--terracotta-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 131, 107, 0.4);
+}
 
 @media (max-width: 768px) {
   .hero { padding: 8rem 1.5rem 4rem; }
   .intro { padding: 3rem 1.5rem; }
   .serviceRow { grid-template-columns: 1fr; direction: ltr; }
   .serviceLeft, .serviceRight { padding: 3rem 1.5rem; }
-  .serviceRight { border-left: none; border-top: 1px solid #1a1a1a; }
-  .alt .serviceRight { border-right: none; border-top: 1px solid #1a1a1a; }
+  .serviceRight { border-left: none; border-top: 1px solid var(--border); }
+  .alt .serviceRight { border-right: none; border-top: 1px solid var(--border); }
   .cta { padding: 5rem 1.5rem; }
 }

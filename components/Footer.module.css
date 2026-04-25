@@ -1,6 +1,5 @@
 .footer {
-  background: #0d0d0d;
-  border-top: 1px solid #1a1a1a;
+  background: var(--charcoal);
   padding: 5rem 3rem 2rem;
 }
 
@@ -11,17 +10,17 @@
   margin-bottom: 4rem;
 }
 
-.brand .logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
-  letter-spacing: 2px;
-  color: #F5C842;
-  margin-bottom: 1rem;
+.brand .logoImg {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1.2rem;
+  filter: brightness(1.2);
 }
-.brand .logo span { color: #444; }
+
 .brand p {
   font-size: 0.85rem;
-  color: #555;
+  color: rgba(255, 255, 255, 0.45);
   line-height: 1.8;
 }
 
@@ -31,32 +30,30 @@
   gap: 0.75rem;
 }
 .col h4 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1.1rem;
-  letter-spacing: 2px;
-  color: #F5C842;
+  letter-spacing: 0;
+  color: var(--terracotta-light);
   margin-bottom: 0.25rem;
 }
 .col a, .col span {
   font-size: 0.82rem;
-  color: #555;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: color 0.2s;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
   cursor: default;
 }
 .col a { cursor: pointer; }
-.col a:hover { color: #F5C842; }
+.col a:hover { color: var(--terracotta); }
 
 .bottom {
-  border-top: 1px solid #1a1a1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 2rem;
   display: flex;
   justify-content: space-between;
   font-size: 0.75rem;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 900px) {
