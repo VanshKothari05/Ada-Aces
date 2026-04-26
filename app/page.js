@@ -104,12 +104,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TICKER */}
+      {/* TICKER / MARQUEE */}
       <div className={styles.ticker}>
         <div className={styles.tickerInner}>
-          {['Brand Strategy','Digital Campaigns','Creative Direction','Performance Marketing','Content Studio','Social Media','Brand Strategy','Digital Campaigns','Creative Direction','Performance Marketing','Content Studio','Social Media'].map((t, i) => (
-            <span key={i}>{t}</span>
-          ))}
+          {[...Array(3)].flatMap((_, copy) =>
+            ['Brand Strategy','Digital Campaigns','Creative Direction','Performance Marketing','Content Studio','Social Media'].map((t, i) => (
+              <span key={`${copy}-${i}`}>{t}</span>
+            ))
+          )}
         </div>
       </div>
 

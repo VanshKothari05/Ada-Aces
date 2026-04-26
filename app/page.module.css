@@ -229,15 +229,17 @@
   background: rgba(212, 131, 107, 0.05);
 }
 
-/* ========== TICKER ========== */
+/* ========== TICKER / MARQUEE ========== */
 .ticker {
   background: linear-gradient(135deg, var(--navy), var(--charcoal));
   overflow: hidden;
   padding: 0.7rem 0;
+  position: relative;
 }
 .tickerInner {
   display: flex;
-  animation: ticker 25s linear infinite;
+  width: max-content;
+  animation: tickerScroll 20s linear infinite;
   white-space: nowrap;
 }
 .tickerInner span {
@@ -248,12 +250,22 @@
   color: rgba(255, 255, 255, 0.6);
   padding: 0 2rem;
   font-weight: 400;
+  flex-shrink: 0;
 }
 .tickerInner span::after {
   content: '♠';
   margin-left: 2rem;
   opacity: 0.3;
   color: var(--terracotta-light);
+}
+
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ========== SERVICES ========== */
