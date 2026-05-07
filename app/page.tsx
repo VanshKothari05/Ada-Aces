@@ -3,13 +3,18 @@ import { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Link from 'next/link';
+import IntroAnimation from '../components/ui/scroll-morph-hero';
 import styles from './page.module.css';
 
 const services = [
-  { num: '01', title: 'Brand Strategy', desc: 'Positioning, identity, and messaging that makes your brand impossible to ignore.', icon: '◆' },
-  { num: '02', title: 'Digital Campaigns', desc: 'Performance-driven campaigns across paid, organic, and social channels.', icon: '▲' },
-  { num: '03', title: 'Creative Direction', desc: 'Visuals, copy, and creative assets that stop the scroll and start conversations.', icon: '●' },
-  { num: '04', title: 'Growth Marketing', desc: 'Data-backed strategies to acquire, retain, and scale your customer base.', icon: '■' },
+  { num: '01', title: 'Social Media Marketing', desc: 'Engaging content and strategies to grow your audience and build community.', icon: '◆' },
+  { num: '02', title: 'Brand Marketing', desc: 'Positioning, identity, and messaging that makes your brand impossible to ignore.', icon: '▲' },
+  { num: '03', title: 'Ad Shooting', desc: 'High-quality commercial production that captures attention and drives action.', icon: '●' },
+  { num: '04', title: 'Influencer Marketing', desc: 'Connecting your brand with the right voices to amplify your message.', icon: '■' },
+  { num: '05', title: 'Brochure, Cards & Designing', desc: 'Stunning visual assets, print collateral, and comprehensive graphic design.', icon: '◈' },
+  { num: '06', title: 'Product Shoots', desc: 'Professional photography that highlights the best features of your products.', icon: '◉' },
+  { num: '07', title: 'Marketing', desc: 'Data-backed strategies and comprehensive campaigns to scale your business.', icon: '▣' },
+  { num: '08', title: 'Web Development', desc: 'Custom, high-performance websites that serve as your digital storefront.', icon: '▼' },
 ];
 
 const works = [
@@ -53,67 +58,11 @@ export default function Home() {
       <Navbar />
 
       {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroDecorations}>
-          <span className={styles.spade1}>♠</span>
-          <span className={styles.spade2}>♠</span>
-          <span className={styles.diamond1}>◆</span>
-        </div>
-        <div className={styles.heroContent}>
-          <div className={styles.heroInner}>
-            <div className={styles.eyebrow}>
-              <span className={styles.eyebrowLine} />
-              Creative Marketing Agency
-            </div>
-            <h1 className={styles.heroTitle}>
-              We Make<br />
-              Brands{' '}
-              <span className={styles.heroTitleAccent}>Unforgettable</span>
-            </h1>
-            <div className={styles.heroTagline}>
-              <span className={styles.taglineDot}>♠</span>
-              Shoot · Create · Elevate
-            </div>
-            <p className={styles.heroSub}>
-              We craft brands that command attention and campaigns that convert. Bold strategy meets stunning creative.
-            </p>
-            <div className={styles.heroActions}>
-              <Link href="/work" className={styles.btnPrimary}>See Our Work</Link>
-              <Link href="/contact" className={styles.btnOutline}>Get In Touch</Link>
-            </div>
-            <div className={styles.heroBadges}>
-              <div className={styles.heroBadge}>
-                <span className={styles.badgeNum}>80+</span>
-                <span className={styles.badgeLabel}>Brands Launched</span>
-              </div>
-              <div className={styles.heroBadgeDivider} />
-              <div className={styles.heroBadge}>
-                <span className={styles.badgeNum}>4x</span>
-                <span className={styles.badgeLabel}>Avg. ROAS</span>
-              </div>
-              <div className={styles.heroBadgeDivider} />
-              <div className={styles.heroBadge}>
-                <span className={styles.badgeNum}>12</span>
-                <span className={styles.badgeLabel}>Awards Won</span>
-              </div>
-            </div>
-          </div>
-          <div className={styles.heroLogoWrap}>
-            <img src="/logo.jpeg" alt="Ads and Aces" className={styles.heroLogo} />
-          </div>
-        </div>
-      </section>
-
-      {/* TICKER / MARQUEE */}
-      <div className={styles.ticker}>
-        <div className={styles.tickerInner}>
-          {[...Array(3)].flatMap((_, copy) =>
-            ['Brand Strategy','Digital Campaigns','Creative Direction','Performance Marketing','Content Studio','Social Media'].map((t, i) => (
-              <span key={`${copy}-${i}`}>{t}</span>
-            ))
-          )}
-        </div>
+      <div className="w-full h-[800px] border rounded-lg overflow-hidden relative">
+        <IntroAnimation />
       </div>
+
+
 
       {/* SERVICES PREVIEW */}
       <section className={styles.services}>
@@ -175,6 +124,21 @@ export default function Home() {
           <p className={styles.ctaSub}>Let&apos;s build something unforgettable together.</p>
         </div>
         <Link href="/contact" className={`${styles.btnDark} reveal reveal-delay-2`}>Start a Project →</Link>
+      </section>
+
+      {/* PARTNERS */}
+      <section className={styles.partnersSection}>
+        <div className={styles.partnerHead}>Our Partners</div>
+        <div className={styles.partnersGrid}>
+          <div className={styles.partnerCard}>
+            <span className={styles.partnerLabel}>Tech Partner</span>
+            <span className={styles.partnerName}>RyzenTech</span>
+          </div>
+          <div className={styles.partnerCard}>
+            <span className={styles.partnerLabel}>Media Partner</span>
+            <span className={styles.partnerName}>Pixellence Studio</span>
+          </div>
+        </div>
       </section>
 
       <Footer />
